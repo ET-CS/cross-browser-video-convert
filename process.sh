@@ -8,15 +8,16 @@ if [ $# -eq 0 ]; then
 fi
 
 filename=$1
-noextension="${filename%.*}"
-full_mp4=$noextension.converted.mp4
-full_webm=$noextension.converted.webm
-full_ogv=$noextension.converted.ogv
 
 if [ ! -f $filename ]; then
     echo "File not found! $filename"
     exit
 fi
+
+noextension="${filename%.*}"
+full_mp4=$noextension.converted.mp4
+full_webm=$noextension.converted.webm
+full_ogv=$noextension.converted.ogv
 
 common="-i $filename -y -strict -2"
 command="/usr/bin/ffmpeg "$common
